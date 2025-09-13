@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Toko Bunga Elegan — Profesional</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">Toko Bunga Elegan</div>
+    <nav class="nav">
+      <a href="#produk">Produk</a>
+      <a href="#order">Pesan</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Banner dengan Slideshow -->
+<section class="hero-slider" id="home">
+  <div class="slide active" style="background-image:url('images/mawar\ merah.jpg')">
+    <div class="copy">
+      <h2>Segar 🌸 Cantik 💐</h2>
+      <p>Bunga segar pilihan terbaik untuk momen spesial Anda</p>
+    </div>
+  </div>
+  <div class="slide" style="background-image:url('images/logo-perhutani-02.jpg')">
+    <div class="copy">
+      <h2>Pengiriman Ekspres ⚡</h2>
+      <p>Kirim bunga dalam 2–3 jam di Purwakarta & sekitarnya</p>
+    </div>
+  </div>
+  <div class="slide" style="background-image:url('images/WhatsApp\ Image\ 2025-09-01\ at\ 11.55.34.jpg')">
+    <div class="copy">
+      <h2>Profesional & Elegan 🎀</h2>
+      <p>Desain modern untuk buket, standing, dan papan bunga</p>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="info-banner">
+  <div class="info-track">
+    <span>⏰ Jam Online: 24jam</span>
+    <span>🚚 Pengiriman: Setiap hari</span>
+    <span>⚡ Pengiriman Ekspres 2–3 Jam</span>
+    <span>📦 Area Layanan: Purwakarta dan sekitar</span>
+  </div>
+</div>
+
+  <div class="wrap" id="produk">
+  <div class="section-header">
+    <h2>Koleksi Pilihan</h2>
+    <div class="filters">
+      <button class="tab active" data-filter="all">Semua</button>
+      <button class="tab" data-filter="buket">Buket</button>
+      <button class="tab" data-filter="standing">Standing</button>
+      <button class="tab" data-filter="papan">Papan</button>
+    </div>
+  </div>
+
+  <!-- 🔎 Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Cari produk (nama/harga)...">
+  </div>
+
+  <div id="grid" class="grid"></div>
+</div>
+
+
+
+
+  <section class="wrap" id="order" aria-label="Form pemesanan">
+    <h2>Form Pemesanan</h2>
+
+    <div class="order-layout">
+      <!-- form left -->
+      <form id="orderForm" class="order-form" autocomplete="off">
+        <div class="steps">
+          <div class="step active" data-step="1">
+            <h3>1. Identitas</h3>
+            <label>Nama penerima <input id="order-name" name="name" required></label>
+            <label>Nomor WA (penerima) <input id="order-wa" name="wa" placeholder="0812xxxx" required></label>
+            <label>Alamat Pengiriman <input id="order-address" name="address" placeholder="Nama jalan, kota"></label>
+            <label>Waktu/tgl Pengiriman <input id="order-date" name="date" placeholder="Masukan waktu hari tanggal pengiriman"></label>
+            <div class="step-actions">
+              <button type="button" class="btn primary" data-next>Selanjutnya</button>
+            </div>
+          </div>
+
+          <div class="step" data-step="2">
+            <h3>2. Detail Pesanan</h3>
+            <label>Pilih Produk
+              <select id="order-product" required>
+                <option value="">— Pilih produk —</option>
+              </select>
+            </label>
+            <div class="inline">
+              <label>Jumlah <input id="order-qty" type="number" min="1" value="1"></label>
+              <label>Ucapan pada kartu <input id="order-card" placeholder="Isi ucapan"></label>
+            <label>Nama Pengirim <input id="order-nama" name="Nama" required></label>
+            </div>
+            <label>Catatan Tambahan <input id="order-note" placeholder="Jika ingin request (warna, desain, Dll)"></label>
+            <div class="step-actions">
+              <button type="button" class="btn ghost" data-prev>Kembali</button>
+              <button type="button" class="btn primary" data-next>Selanjutnya</button>
+            </div>
+          </div>
+
+          <div class="step" data-step="3">
+            <h3>3. Konfirmasi & Kirim</h3>
+            <div id="confirm-box" class="confirm-box">
+              <!-- ringkasan akan diisi oleh JS -->
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn ghost" data-prev>Kembali</button>
+              <button type="submit" class="btn primary">Kirim Pesan via WhatsApp</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!-- preview right -->
+      <aside class="order-preview">
+        <div class="preview-card">
+          <img id="preview-img" src="" alt="" style="display:none">
+          <div class="preview-title" id="preview-name">Pilih produk untuk melihat preview</div>
+          <div class="preview-price" id="preview-price"></div>
+          <div class="preview-rating" id="preview-rating"></div>
+          <div class="preview-desc muted" id="preview-desc"></div>
+          <div class="preview-actions">
+            <button id="addToForm" class="btn secondary" disabled>Tambahkan ke Form</button>
+          </div>
+        </div>
+
+        
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<!-- product modal -->
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel" role="dialog" aria-modal="true">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-inner">
+      <img id="modal-img" src="" alt="">
+      <div class="modal-info">
+        <h3 id="modal-name"></h3>
+        <div class="muted" id="modal-desc"></div>
+        <div class="price" id="modal-price"></div>
+        <div class="rating" id="modal-rating"></div>
+       <div class="modal-actions">
+  <label>Jumlah <input id="modal-qty" type="number" min="1" value="1"></label>
+  <button id="modal-order" class="btn primary">Pesan via WhatsApp</button>
+  <button id="modal-add" class="btn ghost">Pilih di Form</button>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Galeri Portfolio -->
+<section id="galeri" class="wrap gallery-section fade-up">
+  <h2 class="section-title">📸 Galeri Kami</h2>
+  <p class="muted">Beberapa rangkaian bunga yang pernah kami buat untuk pelanggan.</p>
+
+  <div class="gallery-grid">
+    <img src="images/bkt1.jpg" alt="Buket Mawar Pink" onclick="openGallery(this)">
+    <img src="images/bkt2.jpg" alt="Buket Campuran Elegan" onclick="openGallery(this)">
+    <img src="images/std1.jpg" alt="Standing Elegan" onclick="openGallery(this)">
+    <img src="images/ppn1.jpg" alt="Papan Selamat" onclick="openGallery(this)">
+    <img src="images/bkt3.jpg" alt="Buket Premium" onclick="openGallery(this)">
+    <img src="images/ppn2.jpg" alt="Papan Pernikahan" onclick="openGallery(this)">
+  </div>
+</section>
+
+<!-- Modal Galeri -->
+<div id="galleryModal" class="modal" aria-hidden="true">
+  <div class="modal-backdrop" onclick="closeGallery()"></div>
+  <div class="modal-panel gallery-modal">
+    <button class="modal-close" onclick="closeGallery()">&times;</button>
+    <img id="galleryImg" src="" alt="">
+    <div id="galleryCaption" class="muted"></div>
+  </div>
+</div>
+
+
+
+<!-- Tentang Kami -->
+<section id="tentang" class="wrap" style="margin:40px auto;">
+  <h2 style="color:var(--accent);">Tentang Kami</h2>
+  <div class="about-box">
+    <p>
+      Toko Bunga Elegan hadir untuk membantu Anda mengekspresikan rasa kasih, 
+      perhatian, dan doa lewat rangkaian bunga segar.  
+      Kami melayani pembuatan <strong>buket, standing flower, dan papan bunga</strong> 
+      untuk berbagai acara penting: ulang tahun, pernikahan, ucapan selamat, hingga duka cita.
+    </p>
+    <p>
+      Dengan pengalaman lebih dari <strong>10 tahun</strong>, tim kami berkomitmen 
+      memberikan pelayanan terbaik: desain modern, pengiriman cepat, dan harga transparan.  
+      Area layanan meliputi <strong>Purwakarta</strong>.
+    </p>
+    <p>
+      Percayakan momen spesial Anda bersama <em>Toko Bunga Elegan</em> 🌸
+    </p>
+  </div>
+  
+  
+
+
+<!-- Kontak Kami -->
+<section id="contact" class="contact-section fade-up">
+  <div class="wrap">
+    <h2 class="section-title">📞 Kontak Kami</h2>
+    <p class="muted">Kami siap membantu Anda 24 jam melalui WhatsApp, telepon, atau email.</p>
+    
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon">💬</div>
+        <h3>WhatsApp</h3>
+        <p><a href="https://wa.me/6281389709411" target="_blank">0813-8970-9411</a></p>
+        <button class="btn primary" onclick="window.open('https://wa.me/6281389709411','_blank')">
+          Chat Sekarang
+        </button>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📧</div>
+        <h3>Email</h3>
+        <p><a href="mailto:info@tokobunga.com">info@tokobunga.com</a></p>
+        <button class="btn secondary" onclick="window.location.href='mailto:info@tokobunga.com'">
+          Kirim Email
+        </button>
+      </div>
+      <div class="contact-card">
+     <div class="icon">📍</div>
+  <h3>Lokasi</h3>
+  <p>Purwakarta, Jawa Barat</p>
+  <button class="btn primary" onclick="window.open('https://maps.app.goo.gl/4X2cPXrTPaowGZVr7?g_st=awb','_blank')">
+    📍 Buka di Google Maps
+  </button>
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="wrap" id="google-review">
+  <h2>⭐ Review Google</h2>
+  <p class="muted">Apa kata pelanggan tentang Toko Bunga Elegan?</p>
+
+  <!-- Embed dari Google Maps -->
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.691330719602!2d107.44189759999999!3d-6.560592100000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e690f002cc03dab%3A0x57dadcbc428c8e82!2sjelita%20group!5e0!3m2!1sid!2sid!4v1757742989079!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
+    width="100%" 
+    height="400" 
+    style="border:0; border-radius:12px;" 
+    allowfullscreen 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+
+  <div style="text-align:center; margin-top:15px;">
+    <a href="https://maps.app.goo.gl/xASnE5Gq5wfojsAk8" target="_blank" class="btn primary">
+      ⭐ Lihat Semua Review di Google
+    </a>
+  </div>
+</section>
+
+</section>
+<footer class="wrap footer">
+  <div>&copy; <span id="year"></span> Toko Bunga Elegan — Semua hak dilindungi.</div>
+</footer>
+
+
+
+<!-- Hero Slider Script -->
+<script>
+  const slides = document.querySelectorAll('.hero-slider .slide');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((s, i) => {
+      s.classList.remove('active');
+      if (i === index) s.classList.add('active');
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // jalankan otomatis tiap 5 detik
+  setInterval(nextSlide, 5000);
+</script>
+
+<!-- Live Chat Widget -->
+<div id="chat-widget" class="chat-widget">
+  <div class="chat-header" onclick="toggleChat()">
+    💬 Butuh Bantuan?
+  </div>
+  <div class="chat-body" id="chat-body">
+    <div class="chat-message bot">Halo 👋 Ada yang bisa kami bantu?</div>
+    <button class="btn primary" onclick="window.open('https://wa.me/6281389709411','_blank')">
+      Chat via WhatsApp
+    </button>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const botMsg = document.querySelector(".chat-message.bot");
+    const text = botMsg.textContent;
+    botMsg.textContent = "";
+    let i = 0;
+    function typing() {
+      if (i < text.length) {
+        botMsg.textContent += text.charAt(i);
+        i++;
+        setTimeout(typing, 40);
+      }
+    }
+    typing();
+  });
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
