@@ -439,3 +439,67 @@ input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid
     font-size: 0.95rem;
   }
 }
+/* ============================
+   Responsive khusus HP
+   ============================ */
+@media (max-width: 768px) {
+
+  /* Hero */
+  .hero-slider {
+    height: 250px; /* lebih kecil */
+  }
+  .hero-slider .copy {
+    padding: 15px;
+  }
+  .hero-slider h2 {
+    font-size: 1.4rem;
+  }
+  .hero-slider p {
+    font-size: 0.9rem;
+  }
+
+  /* Produk Grid */
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom di HP */
+    gap: 10px;
+  }
+  .card h3 {
+    font-size: 1rem;
+  }
+  .card p {
+    font-size: 0.85rem;
+  }
+  .card .price {
+    font-size: 0.9rem;
+  }
+
+  /* Tentang Kami */
+  #tentang .about-box {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 10px;
+  }
+
+  /* Kontak Kami */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* tetap 2 kolom di HP */
+    gap: 15px;
+  }
+  .contact-card h3 {
+    font-size: 1rem;
+  }
+  .contact-card p, .contact-card a {
+    font-size: 0.85rem;
+  }
+
+  /* Review Google */
+  .review-section {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+  .review-action .btn {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+}
