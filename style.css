@@ -370,3 +370,72 @@ input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid
   margin-bottom: 10px;
 }
 
+/* ============================
+   Responsive untuk Mobile
+   ============================ */
+@media (max-width: 768px) {
+
+  /* Header & Navbar */
+  .topbar .wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  /* Hero */
+  .hero-slider .copy {
+    padding: 20px;
+    text-align: center;
+  }
+  .hero-slider h2 {
+    font-size: 1.6rem;
+  }
+  .hero-slider p {
+    font-size: 1rem;
+  }
+
+  /* Produk Grid */
+  .grid {
+    grid-template-columns: 1fr; /* semua produk 1 kolom */
+  }
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Form Pemesanan */
+  .order-layout {
+    flex-direction: column;
+  }
+  .order-preview {
+    margin-top: 20px;
+  }
+
+  /* Contact Section */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Testimoni */
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Review Button */
+  .review-action {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .review-action .btn {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+}
