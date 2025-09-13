@@ -22,8 +22,8 @@ const produkStanding = [
 ];
 
 const produkPapan = [
-  { id:'ppn1', name:'Papan Selamat', price:'Rp1.200.000', img:'images/ppn1.jpg', rating:4, desc:'Papan lebar, custom teks.' },
-  { id:'ppn2', name:'Papan Pernikahan', price:'Rp1.500.000', img:'images/ppn2.jpg', rating:5, desc:'Desain elegan untuk pernikahan.' }
+  { id:'ppn1', name:'Papan Turut berduka cita', price:'Rp500.000', img:'images/ppntbc-dc1.jpg', rating:4, desc:'Papan lebar, custom teks.' },
+  { id:'ppn2', name:'Papan Pernikahan', price:'Rp500.000', img:'images/ppntbc-dc2.jpg', rating:5, desc:'Desain elegan untuk pernikahan.' }
 ];
 
 const semuaProduk = [...produkBuket, ...produkStanding, ...produkPapan];
